@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "ff279d74a93f67054c815d563bab9f28"
-application_url = "https://shopify.dev/apps/default-app-home"
+application_url = "https://shopify-announcement-banner-5pv4.onrender.com"
 embedded = true
 name = "\ranish-announcement-app"
 
@@ -10,7 +10,10 @@ name = "\ranish-announcement-app"
 scopes = "write_products"
 
 [auth]
-redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
+redirect_urls = [
+  "https://shopify-announcement-banner-5pv4.onrender.com/api/auth",
+  "https://shopify-announcement-banner-5pv4.onrender.com/api/auth/callback"
+]
 
 [webhooks]
 api_version = "2026-07"
