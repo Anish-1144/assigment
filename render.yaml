@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: shopify-announcement-banner
+    runtime: node
+    plan: free
+    buildCommand: cd web && npm install && cd frontend && npm install && npm run build
+    startCommand: cd web && npm run serve
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SCOPES
+        value: write_products
+      - key: SHOPIFY_API_KEY
+        sync: false
+      - key: SHOPIFY_API_SECRET
+        sync: false
+      - key: MONGODB_URI
+        sync: false

@@ -6,6 +6,10 @@ import { restResources } from "@shopify/shopify-api/rest/admin/2024-10";
 
 const DB_PATH = `${process.cwd()}/database.sqlite`;
 
+if (!process.env.HOST && process.env.RENDER_EXTERNAL_URL) {
+  process.env.HOST = process.env.RENDER_EXTERNAL_URL;
+}
+
 const shopify = shopifyApp({
   api: {
     apiVersion: LATEST_API_VERSION,
