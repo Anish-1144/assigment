@@ -1,0 +1,40 @@
+{%- assign announcement = shop.metafields.my_app.announcement.value -%}
+
+{%- if block.settings.enabled and announcement != blank -%}
+  {{ 'announcement-banner.css' | asset_url | stylesheet_tag }}
+  <div
+    class="app-announcement-banner"
+    style="background:{{ block.settings.bg_color }}; color:{{ block.settings.text_color }};"
+    role="region"
+    aria-label="Store announcement"
+  >
+    <p class="app-announcement-banner__text">{{ announcement }}</p>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Banner",
+  "target": "body",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable announcement banner",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}
